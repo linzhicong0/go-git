@@ -6,6 +6,8 @@ var WorkingDir string
 var GotFolder string
 var ObjectsFolder string
 var RefsFolder string
+var RefsHeadsFolder string
+var RefsTagsFolder string
 
 func init(){
 
@@ -17,6 +19,10 @@ func init(){
 
 	RefsFolder = WorkingDir + REFS_FOLDER
 
+	RefsHeadsFolder = WorkingDir + REFS_HEADS_FOLDER
+
+	RefsTagsFolder = WorkingDir + REFS_TAGS_FOLDER
+
 }
 
 
@@ -26,6 +32,8 @@ const (
 	HEADFILE = DB_FOLDER + "/HEAD"
 	OBJECTS_FOLDER = DB_FOLDER + "/objects"
 	REFS_FOLDER = DB_FOLDER + "/refs"
+	REFS_HEADS_FOLDER = REFS_FOLDER + "/heads"
+	REFS_TAGS_FOLDER = REFS_FOLDER + "/tags"
 
 )
 

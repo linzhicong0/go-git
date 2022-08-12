@@ -15,9 +15,11 @@ func InitRun(cmd *cobra.Command, args []string) {
 	createDBFolders()
 
 	err := ioutil.WriteFile(constant.WorkingDir + constant.HEADFILE, []byte(constant.DEFAULT_HEAD), 0600)
-	if err == nil {
+	if err != nil {
 		fmt.Println(err)
 	}
+
+	fmt.Printf("Initialized empty Git repository in %s", constant.GotFolder)
 }
 
 // Create related folders
@@ -34,6 +36,10 @@ func createDBFolders() error{
 	err = os.Mkdir(constant.ObjectsFolder, 0700)
 	// create .got/refs/
 	err = os.Mkdir(constant.RefsFolder, 0700)
+	// create .got/refs/heads
+	err = os.Mkdir(constant.RefsHeadsFolder, 0700)
+	// create .got/refs/tags
+	err = os.Mkdir(constant.RefsTagsFolder, 0700)
 
 	fmt.Println(err)
 	// TODO: handle error
