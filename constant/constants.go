@@ -41,3 +41,11 @@ const (
 	DEFAULT_HEAD = "ref: refs/heads/master"
 )
 
+type ObjectType int
+
+const (
+	COMMIT_TYPE ObjectType = iota
+	TREE_TYPE ObjectType = iota
+	BLOB_TYPE ObjectType = iota
+)
+

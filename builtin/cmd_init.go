@@ -14,12 +14,13 @@ func InitRun(cmd *cobra.Command, args []string) {
 
 	createDBFolders()
 
+	// write the default ref to the HEAD file
 	err := ioutil.WriteFile(constant.WorkingDir + constant.HEADFILE, []byte(constant.DEFAULT_HEAD), 0600)
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	fmt.Printf("Initialized empty Git repository in %s", constant.GotFolder)
+	fmt.Printf("Initialized empty Got repository in %s", constant.GotFolder)
 }
 
 // Create related folders
