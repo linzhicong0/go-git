@@ -44,10 +44,16 @@ type Commit struct{
 }
 
 // Represent the object in index file
-type Index struct{
+type IndexObject struct{
 	Id string
 	Typ constant.ObjectType
 	File string
+}
+
+type Object struct {
+	Typ constant.ObjectType
+	Size int
+	Data interface{}
 }
 
 // Description of the commit tree
