@@ -1,6 +1,14 @@
-# Description
-As a developer, we use git everyday for tracking our code. But have you ever thought about how git is working (tracking updates, commit updates....)? But when I clone the git resource code which is written in C and try to read it, I just feel a little bit difficult to understand.
+# 简介
+作为开发者，我们每天都使用git来进行代码的管理，但某一天，我突然想，git是如何实现文件的跟踪管理的？ 
 
-This is why I created this repository, just to learn how git is working and try to using Golang to write one.
+于是我便clone了git的源代码，
+并回滚到Linus的第一次提交，尝试读懂其原理，但C毕竟是比较底层的语言，读起来相对难懂，于是我便萌生了使用golang来尝试实现一个git的基本功能的想法。
+由于是使用golang来实现git的功能，于是我打算叫这个工具为got。
+
+# 目标
+1. 弄懂git使用的数据结构和算法
+2. 实现add, cat-file, commit, diff, log, status等功能
+3. ...
+
 
 
