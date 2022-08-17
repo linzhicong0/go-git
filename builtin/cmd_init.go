@@ -29,7 +29,6 @@ func InitRun(cmd *cobra.Command, args []string) {
 // .got/refs/
 func createDBFolders() error{
 
-
 	var err error
 	// create .got/
 	err = os.Mkdir(constant.GotFolder, 0700)

@@ -47,5 +47,6 @@ const (
 	COMMIT_TYPE ObjectType = "commit"
 	TREE_TYPE ObjectType = "tree"
 	BLOB_TYPE ObjectType = "blob"
+	TAG_TYPE ObjectType = "tag"
 )
 

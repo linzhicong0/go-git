@@ -29,11 +29,6 @@ func readSHA1File(sha1 string) ([]byte, error) {
 
 	defer r.Close()
 
-	//var deCompressedBuffer bytes.Buffer
-	//io.Copy(&deCompressedBuffer, r)
-	//
-	//return deCompressedBuffer.Bytes(), nil
-
 	ret, err := ioutil.ReadAll(r)
 	return ret, err
 

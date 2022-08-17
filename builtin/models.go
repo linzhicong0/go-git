@@ -31,27 +31,26 @@ import "got/constant"
 							  Blob   Tree
 									   |
 									  ...
- */
+*/
 
-
-type Commit struct{
-	Id string
-	ParentId string
-	TreeId string
-	Author UserInfo
+type Commit struct {
+	Id        string
+	ParentId  string
+	TreeId    string
+	Author    UserInfo
 	Committer UserInfo
-	Msg string
+	Msg       string
 }
 
 // Represent the object in index file
-type IndexObject struct{
-	Id string
-	Typ constant.ObjectType
+type IndexObject struct {
+	Id   string
+	Typ  constant.ObjectType
 	File string
 }
 
 type Object struct {
-	Typ constant.ObjectType
+	Typ  constant.ObjectType
 	Size int
 	Data interface{}
 }
@@ -60,29 +59,32 @@ type Object struct {
 // Representation of the folder
 // Will be serialized using gob
 type Tree struct {
-	Id string
-	BlobIds []string
-	ChildIds []string
+	Id    string
+	Items []Item
 }
 
+// blob 0ad6c3908648d00e37d27d0ffaaae7e05fc80817	cmd_init.go
+type Item struct {
+	SHA1 string
+	Typ  constant.ObjectType
+	Name string
+}
 
-type Blob struct{
+type Blob struct {
 	Content []byte
 }
 
-
-type Log struct{
+type Log struct {
 	PreCommitId string
 	CurCommitId string
-	TimeStamp string
-	CommitMsg string
+	TimeStamp   string
+	CommitMsg   string
 }
 
-
 // Description of the author or committer
-type UserInfo struct{
-	Name string
-	Email string
+type UserInfo struct {
+	Name      string
+	Email     string
 	Timestamp string
-	TimeZone string
+	TimeZone  string
 }
