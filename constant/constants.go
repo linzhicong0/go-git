@@ -41,11 +41,12 @@ const (
 	DEFAULT_HEAD = "ref: refs/heads/master"
 )
 
-type ObjectType int
+type ObjectType string
 
 const (
-	COMMIT_TYPE ObjectType = iota
-	TREE_TYPE ObjectType = iota
-	BLOB_TYPE ObjectType = iota
+	COMMIT_TYPE ObjectType = "commit"
+	TREE_TYPE ObjectType = "tree"
+	BLOB_TYPE ObjectType = "blob"
+	TAG_TYPE ObjectType = "tag"
 )
 
