@@ -8,6 +8,7 @@ var ObjectsFolder string
 var RefsFolder string
 var RefsHeadsFolder string
 var RefsTagsFolder string
+var IndexFile string
 
 func init(){
 
@@ -22,6 +23,8 @@ func init(){
 	RefsHeadsFolder = WorkingDir + REFS_HEADS_FOLDER
 
 	RefsTagsFolder = WorkingDir + REFS_TAGS_FOLDER
+
+	IndexFile = WorkingDir + INDEX_FILE
 
 }
 

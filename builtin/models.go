@@ -49,6 +49,15 @@ type IndexObject struct {
 	File string
 }
 
+type CacheEntry struct {
+	MTime  int64
+	STSize uint
+	SHA1   string
+	Name   string
+}
+
+
+
 type Object struct {
 	Typ  constant.ObjectType
 	Size int
