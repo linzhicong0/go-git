@@ -6,6 +6,7 @@ import (
 	"got/constant"
 	"io/ioutil"
 	"os"
+	"strings"
 )
 
 func StatusRun(cmd *cobra.Command, args []string) {
@@ -27,8 +28,9 @@ func showChanged() {
 		return
 	}
 
-	mFiles := make([]string, 5)
-	untrackedFiles := make([]string, 5)
+	mFiles := make([]string, 0)
+	untrackedFiles := make([]string, 0)
+
 
 	for _, file := range files {
 
@@ -49,21 +51,26 @@ func showChanged() {
 
 	// Output the changed and untracked files
 
-	fmt.Println(`Changes not staged for commit:
+	if len(mFiles) >0 {
+		fmt.Println(`Changes not staged for commit:
 	(use "got add <file>..." to update what will be committed)
 	(use "got restore <file>..." to discard changes in working directory)
 	`)
 
-	for _, mf := range mFiles {
-		fmt.Printf("modified:\t\t%s", mf)
+		for _, mf := range mFiles {
+			fmt.Printf("modified:\t\t%s\n", mf)
+		}
 	}
 
-	fmt.Println(`Untracked files:
-	(use "got add <file>... to include in what will be committed")`)
+	if len(untrackedFiles) > 0 {
+		fmt.Println(`Untracked files:
+  (use "got add <file>... to include in what will be committed")`)
 
-	for _, utf := range untrackedFiles{
-		fmt.Printf("%s", utf)
+		for _, utf := range untrackedFiles{
+			fmt.Printf("\t%s\n", utf)
+		}
 	}
+
 
 }
 
@@ -75,11 +82,11 @@ func getAllFilesOfGivenFolder(folder string) ([]string, error) {
 		return nil, err
 	}
 
-	files := make([]string, 5)
+	files := make([]string, 0)
 
 	for _, fi := range fis {
 
-		if fi.Name() == constant.DB_FOLDER || fi.Name() == ".git" {
+		if strings.Contains(fi.Name(), ".got")|| strings.Contains(fi.Name(), ".git")  {
 			continue
 		}
 
@@ -103,7 +110,7 @@ func getAllFilesOfGivenFolder(folder string) ([]string, error) {
 }
 
 func getRelativePath(fileName string) string {
-	return fileName[len(constant.WorkingDir):]
+	return fileName[len(constant.WorkingDir)+1:]
 }
 
 func matchStat(ce *CacheEntry, fi *os.FileInfo) bool {
