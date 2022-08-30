@@ -13,7 +13,7 @@ import (
 // addCmd represents the add command
 var addCmd = &cobra.Command{
 	Use:   "add",
-	Short: "Staged the modified or newly created files",
+	Short: "git add [<options>] [--] <pathspec>...",
 	Long: `Staged the modified or newly created files`,
 	Run: builtin.AddRun,
 }
